@@ -2,7 +2,7 @@
 
 ## Motivation
 
-I was taking part in a mentoring program and wanted to find a way that we could share a compute environment. This would allow us to simplify the troubleshooting process as both parties are using the same environment. I decided that JupyterLab hosted in a cloud environment would work well.
+I was taking part in a mentoring program and wanted to find a way that I could share a compute environment with my mentee. Having a hosted JupyterLab instance would allow us to simplify the troubleshooting process as both parties are using the same environment.
 
 ## Thanks to
 
