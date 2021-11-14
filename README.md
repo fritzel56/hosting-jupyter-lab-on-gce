@@ -62,3 +62,7 @@ jupyter lab --ip=0.0.0.0 --port=8888 --no-browser &
 http://<your external ip address>:8888/lab/
 ```
 17. Enter your password and welcome to your JupyterLab hosted on Google cloud compute!
+
+## HTTP vs HTTPS
+
+The article by nyghtowl [here](https://medium.com/@nyghtowl/setup-jupyter-notebook-access-on-google-compute-engine-with-https-ad69297f438b) walks you through hosting a HTTPS server. I opted not to go this way because, with the self-signed SSL certificate, the browser throws many warnings, making it harder to login and more concerning to people that I share with. With HTTP, Firefox shows a warning in the address bar but takes you directly to the server.
