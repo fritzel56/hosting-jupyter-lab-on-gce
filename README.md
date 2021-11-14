@@ -28,7 +28,7 @@ sudo apt-get install bzip2 libxml2-dev libsm6 libxrender1 libfontconfig1 wget gi
 wget https://repo.anaconda.com/miniconda/Miniconda3-4.7.10-Linux-x86_64.sh
 bash Miniconda3-4.7.10-Linux-x86_64.sh
 ```
-8. Export the new location to path and remove the download:
+8. Export the new location to path and remove the download. Make sure you update the first command to replace `<your name here>` with your google account name (if uncertain what this is, see the command prompt in your terminal which should be of the form `<your name>@<instance name>`.
 ```
 export PATH=/home/<your name here>/miniconda3/bin:$PATH
 rm Miniconda3-4.7.10-Linux-x86_64.sh
@@ -42,12 +42,11 @@ which conda
 ```
 exec bash
 ```
-12. Set up your environment and install some packages:
-```
-conda create -n myenv
-conda activate myenv
-conda install pandas jupyter jupyterlab openpyxl
-```
+12. Set up your environment and install jupyter:
+   1. run: `conda create -n myenv`
+   2. run: `conda activate myenv`
+   3. run: `conda install jupyter jupyterlab`
+   4. install any other python packages you want: `conda install package1, package2 etc.`
 13. Set up jupyterlab. The second line will prompt you to create a password which will protect your server from random internet people.
 ```
 jupyter lab --generate-config
@@ -62,3 +61,4 @@ jupyter lab --ip=0.0.0.0 --port=8888 --no-browser &
 ```
 http://<your external ip address>:8888/lab/
 ```
+17. Enter your password and welcome to your JupyterLab hosted on Google cloud compute!
