@@ -28,40 +28,46 @@ sudo apt-get install bzip2 libxml2-dev libsm6 libxrender1 libfontconfig1 wget gi
 wget https://repo.anaconda.com/miniconda/Miniconda3-4.7.10-Linux-x86_64.sh
 bash Miniconda3-4.7.10-Linux-x86_64.sh
 ```
-8. Export the new location to path and remove the download. Make sure you update the first command to replace `<your name here>` with your google account name (if uncertain what this is, see the command prompt in your terminal which should be of the form `<your name>@<instance name>`.
+8. Export the new location to path. Make sure you update the first command to replace `<your name here>` with your google account name (if uncertain what this is, see the command prompt in your terminal which should be of the form `<your name>@<instance name>`.
 ```
 export PATH=/home/<your name here>/miniconda3/bin:$PATH
+```
+9. Remove the download:
+```
 rm Miniconda3-4.7.10-Linux-x86_64.sh
 ```
-9. Check that you have conda installed with:
+10. Check that you have conda installed with:
 ```
 which conda
 ```
-10. This should return something like `/home/<your name here>/yes/bin/conda`. If not, I'm sorry and google is your best friend.
-11. Restart the terminal:
+11. This should return something like `/home/<your name here>/yes/bin/conda`. If not, I'm sorry and google is your best friend.
+12. Restart the terminal:
 ```
 exec bash
 ```
-12. Set up your environment and install jupyter:
-   1. run: `conda create -n myenv`
-   2. run: `conda activate myenv`
-   3. run: `conda install jupyter jupyterlab`
+13. Set up your environment and install jupyter:
+   1. run:
+```conda create -n myenv```
+   2. run:
+```conda activate myenv```
+   3. run:
+```conda install jupyter jupyterlab```
    4. install any other python packages you want: `conda install package1, package2 etc.`
-13. Set up jupyterlab. The second line will prompt you to create a password which will protect your server from random internet people.
+14. Set up jupyterlab. The second line will prompt you to create a password which will protect your server from random internet people.
 ```
 jupyter lab --generate-config
 jupyter lab password
 ```
-14. Get yourself a static IP address so you can consistently interact with your server. Head over to the Google's cloud console's VPC Network: External IP Addresses (direct link [here](https://console.cloud.google.com/networking/addresses/list?project=stalwart-kite-170323). If this is your only instance, there should only be a single line. If there are multiple, match the External Address shown for the instance shown on the Compute page. Select the IP Address and click `RESERVE STATIC ADDRESS`.
-15. Start your server:
+15. Get yourself a static IP address so you can consistently interact with your server. Head over to the Google's cloud console's VPC Network: External IP Addresses (direct link [here](https://console.cloud.google.com/networking/addresses/list?project=stalwart-kite-170323). If this is your only instance, there should only be a single line. If there are multiple, match the External Address shown for the instance shown on the Compute page. Select `RESERVE` on the left.
+16. Start your server:
 ```
 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser &
 ```
-16. Navitagate to your server by putting this into your address bar in a new tab:
+17. Navitagate to your server by putting this into your address bar in a new tab:
 ```
 http://<your external ip address>:8888/lab/
 ```
-17. Enter your password and welcome to your JupyterLab hosted on Google cloud compute!
+18. Enter your password and welcome to your JupyterLab hosted on Google cloud compute!
 
 ## HTTP vs HTTPS
 
