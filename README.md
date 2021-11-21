@@ -72,3 +72,37 @@ http://<your external ip address>:8888/lab/
 ### HTTP vs HTTPS
 
 The article by nyghtowl [here](https://medium.com/@nyghtowl/setup-jupyter-notebook-access-on-google-compute-engine-with-https-ad69297f438b) walks you through hosting an HTTPS server. I opted not to go this way because, with the self-signed SSL certificate, the browser redirects you to a warning page, making it harder to login and more concerning to people that I share the server with. With HTTP, Firefox shows a warning in the address bar but takes you directly to the server.
+
+
+# Using Plotly Express with JupyterLabs and GCE
+
+I was expecting that, having followed the above steps, I could then install plotly express into my virutal environment with the following:
+```
+conda install -c plotly plotly_express
+```
+and then run plotly express in my jupyter notebook; however, when I then ran plotly's example code from [here](https://plotly.com/python/getting-started/):
+```python
+import plotly.graph_objects as go
+fig = go.Figure(data=go.Bar(y=[2, 3, 1]))
+fig.show()
+```
+the cell runs but no graph is rendered - just a large empty white space (see example below):
+
+![Missing Graph](https://raw.githubusercontent.com/fritzel56/hosting-jupyter-lab-on-gce/master/images/missing-plotly-graph.PNG)
+
+Again, there are a number of sites discussing how to remedy this but none quite worked for me. In the end, I tracked it down to nodejs being missing. It appears that plotly specifically needs nodejs version 12. I tried several installation methods which installed older versions. What ended up working for me was inspired by [this article](https://monovm.com/blog/how-to-check-nodejs-version/):
+
+```
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+You can then test that you have the correct version installed by running:
+```
+node -v
+```
+which should return something along the lines of `v12.xx.x`
+
+Having done this and refreshing my connection, my graph now renders:
+
+![Rendered Graph](https://raw.githubusercontent.com/fritzel56/hosting-jupyter-lab-on-gce/master/images/plotly-graph-rendered.PNG)
