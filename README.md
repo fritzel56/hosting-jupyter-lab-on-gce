@@ -90,7 +90,7 @@ the cell runs but no graph is rendered - just a large empty white space (see exa
 
 ![Missing Graph](https://raw.githubusercontent.com/fritzel56/hosting-jupyter-lab-on-gce/master/images/missing-plotly-graph.PNG)
 
-Again, there are a number of sites discussing how to remedy this but none quite worked for me. In the end, I tracked it down to nodejs being missing. It appears that plotly specifically needs nodejs version 12. I tried several installation methods which installed older versions. What ended up working for me was inspired by [this article](https://monovm.com/blog/how-to-check-nodejs-version/):
+Again, there are a number of sites discussing how to remedy this but none quite worked for me. In the end, I tracked it down to nodejs being missing. It appears that plotly specifically needs nodejs version 12. I tried several installation methods which installed older versions. What ended up working for me was inspired by [this article](https://computingforgeeks.com/how-to-install-nodejs-on-ubuntu-debian-linux-mint/):
 
 ```
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
